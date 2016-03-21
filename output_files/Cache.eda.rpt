@@ -1,5 +1,5 @@
 EDA Netlist Writer report for Cache
-Mon Mar 21 17:58:59 2016
+Mon Mar 21 20:06:02 2016
 Quartus II 64-Bit Version 14.0.2 Build 209 09/17/2014 SJ Full Version
 
 
@@ -37,7 +37,7 @@ agreement for further details.
 +-------------------------------------------------------------------+
 ; EDA Netlist Writer Summary                                        ;
 +---------------------------+---------------------------------------+
-; EDA Netlist Writer Status ; Successful - Mon Mar 21 17:58:59 2016 ;
+; EDA Netlist Writer Status ; Successful - Mon Mar 21 20:06:02 2016 ;
 ; Revision Name             ; Cache                                 ;
 ; Top-level Entity Name     ; Cache                                 ;
 ; Family                    ; Cyclone IV E                          ;
@@ -95,12 +95,12 @@ Info: Running Quartus II 64-Bit EDA Netlist Writer
     Info: devices manufactured by Altera and sold by Altera or its 
     Info: authorized distributors.  Please refer to the applicable 
     Info: agreement for further details.
-    Info: Processing started: Mon Mar 21 17:58:57 2016
+    Info: Processing started: Mon Mar 21 20:06:00 2016
 Info: Command: quartus_eda --functional=on --flatten_buses=off --simulation=on --tool=modelsim_oem --format=verilog --output_directory=C:/Users/dorozco/Desktop/testCache/simulation/qsim/ Cache -c Cache
 Info (204019): Generated file Cache.vo in folder "C:/Users/dorozco/Desktop/testCache/simulation/qsim//" for EDA simulation tool
 Info: Quartus II 64-Bit EDA Netlist Writer was successful. 0 errors, 0 warnings
     Info: Peak virtual memory: 475 megabytes
-    Info: Processing ended: Mon Mar 21 17:58:59 2016
+    Info: Processing ended: Mon Mar 21 20:06:02 2016
     Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:01
 

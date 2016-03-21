@@ -35,6 +35,24 @@ state.s6b 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1
 state.s7 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
 state.s8 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
 
+State Machine - |Cache|CacheController:Unit1|nextState
+Name nextState.s8 nextState.s7 nextState.s6b nextState.s6 nextState.s5 nextState.s4 nextState.s3 nextState.s2 nextState.s1c nextState.s1b nextState.s1 nextState.s0 nextState.Sdelay nextState.sReset nextState.sIdle 
+nextState.sIdle 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+nextState.sReset 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+nextState.Sdelay 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+nextState.s0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+nextState.s1 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+nextState.s1b 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+nextState.s1c 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+nextState.s2 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+nextState.s3 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+nextState.s4 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+nextState.s5 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+nextState.s6 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+nextState.s6b 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+nextState.s7 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+nextState.s8 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+
 State Machine - |Cache|CacheController:Unit1|state
 Name state.s8 state.s7 state.s6b state.s6 state.s5 state.s4 state.s3 state.s2 state.s1c state.s1b state.s1 state.s0 state.Sdelay state.sIdle state.sReset 
 state.sReset 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 

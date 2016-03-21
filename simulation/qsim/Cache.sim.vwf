@@ -1474,8 +1474,8 @@ TRANSITION_LIST("Mre")
 		{
 			REPEAT = 1;
 			LEVEL 0 FOR 210.0;
-			LEVEL 1 FOR 130.0;
-			LEVEL 0 FOR 660.0;
+			LEVEL 1 FOR 90.0;
+			LEVEL 0 FOR 700.0;
 		}
 	}
 }
@@ -1489,8 +1489,8 @@ TRANSITION_LIST("Mwe")
 		{
 			REPEAT = 1;
 			LEVEL 0 FOR 70.0;
-			LEVEL 1 FOR 100.0;
-			LEVEL 0 FOR 830.0;
+			LEVEL 1 FOR 60.0;
+			LEVEL 0 FOR 870.0;
 		}
 	}
 }
@@ -1661,8 +1661,8 @@ TRANSITION_LIST("controller_en_d")
 			LEVEL 0 FOR 20.0;
 			LEVEL 1 FOR 120.0;
 			LEVEL 0 FOR 20.0;
-			LEVEL 1 FOR 130.0;
-			LEVEL 0 FOR 660.0;
+			LEVEL 1 FOR 120.0;
+			LEVEL 0 FOR 670.0;
 		}
 	}
 }
@@ -1675,11 +1675,7 @@ TRANSITION_LIST("done_controller_d")
 		NODE
 		{
 			REPEAT = 1;
-			LEVEL 0 FOR 170.0;
-			LEVEL 1 FOR 20.0;
-			LEVEL 0 FOR 120.0;
-			LEVEL 1 FOR 20.0;
-			LEVEL 0 FOR 670.0;
+			LEVEL 0 FOR 1000.0;
 		}
 	}
 }
@@ -1692,12 +1688,7 @@ TRANSITION_LIST("done_check_d")
 		NODE
 		{
 			REPEAT = 1;
-			LEVEL 0 FOR 90.0;
-			LEVEL 1 FOR 40.0;
-			LEVEL 0 FOR 100.0;
-			LEVEL 1 FOR 40.0;
-			LEVEL 0 FOR 60.0;
-			LEVEL 1 FOR 670.0;
+			LEVEL 0 FOR 1000.0;
 		}
 	}
 }

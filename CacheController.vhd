@@ -21,9 +21,9 @@ port (
 		delayReq				: out std_logic;
 		done_out             : out std_logic;
 		hit_out 					: out std_logic;
-
+--		start						: out std_logic;
 		----debug lines
---		 read_data_d : out std_logic; 
+--		read_data_d : out std_logic; 
 -- write_data_d : out std_logic;
 -- write_tag_d :  out std_logic;
 -- read_tag_d : out std_logic;
@@ -31,14 +31,14 @@ port (
 ---- data_block_d: out std_logic_vector(63 downto 0);
 -- tempDataIn_d : out std_logic_vector(15 downto 0);
 -- tempDataOut_d : out std_logic_vector(15 downto 0);
--- tagIndex_d: out std_logic_vector(6 downto 0);
--- lineIndex_d: out std_logic_vector(2 downto 0);
--- wordIndex_d: out std_logic_vector(1 downto 0);
+---- tagIndex_d: out std_logic_vector(6 downto 0);
+---- lineIndex_d: out std_logic_vector(2 downto 0);
+---- wordIndex_d: out std_logic_vector(1 downto 0);
 -- hit_d: out STD_LOGIC; 
 -- --tagWrote_d: out std_logic;
 --tag_enable_d: out std_logic;
--- data_enable_d: out std_logic;
--- blockReplaced_d: out std_logic;
+--data_enable_d: out std_logic;
+--blockReplaced_d: out std_logic;
 state_d : out std_logic_vector(3 downto 0)
 --  	
 		);
@@ -46,8 +46,8 @@ state_d : out std_logic_vector(3 downto 0)
 end CacheController;
 
 architecture behav of CacheController is
-signal read_data :  std_logic := '0'; 
-signal write_data :  std_logic:=  '0';
+signal read_data :  std_logic ; 
+signal write_data :  std_logic;
 signal write_tag :   std_logic;
 signal read_tag :  std_logic;
 signal write_block:  std_logic;
@@ -65,20 +65,19 @@ signal blockReplaced: std_logic;
 type state_type is (sIdle,sReset, Sdelay,s0,s1, s1b, s1c,s2,s3,s4, s5, s6,s6b,s7,s8);
 signal state: state_type;	
 signal done: std_ulogic;
-  signal nextState: state_type;
+signal nextState: state_type;
   signal delayNum : integer := 2;
   signal useDelay : std_logic; 
 --signal replaceStatus : std_logic;
 signal read_in : std_logic;
 signal write_in: std_logic;
 
-
 begin 
 tagIndex <= addressIN(11 downto 5);
 lineIndex <= addressIN(4 downto 2);
 wordIndex <= addressIN (1 downto 0);
-hit_out <= hit;
-done_out <= done;
+--hit_out <= hit;
+--done_out <= done;
 --write_tag <= '0';
 --write_block<='0';
 ----debug assigns
@@ -92,9 +91,9 @@ unit2 : DataMemory port map(data_enable, clock, reset,
  read_data,write_data, lineIndex, tempDataOut, tempDataIn, wordIndex, 
  write_block, blockReplaced, data_block);
 
-process (clock, reset)
+process (clock, reset, MreIn, MweIn)
 	variable read_var: std_logic;		
-	variable write_var : std_logic;
+	variable write_var: std_logic;
 	
 begin 
 	
@@ -105,9 +104,9 @@ begin
 		replaceStatusOut <='0';
 		state <=sReset;
 		done <= '0';
-		
 		read_var := MreIn;
-		write_var := mweIn;
+		write_var := MweIn;
+	--	start <= '0';
 --		read_data <='0';
 --		write_data <= '0';
 	else
@@ -118,8 +117,9 @@ begin
 				data_enable <= hit;
 --				read_data <= MreIn;
 --				write_data <= MweIn;
-				
-				
+				--start <= '0';
+				read_data <= MreIn;
+				write_data <= MweIn;
 				case state is
 					when sReset =>
 						state_d <= "1111";
@@ -128,9 +128,11 @@ begin
 						done <= '0';
 						delayReq <= '0';
 						replaceStatusOut <='0';
-						
 						read_var := MreIn;
-						write_var := mweIn;
+						write_var := MweIn;
+						read_data <= read_var;
+						write_data <= write_var;
+						--start <= '1';
 --						write_data <= MweIn;
 --						read_data <= MreIn;
 					when s0 =>-- initialize the tagMemory and desable the data memory;
@@ -148,29 +150,22 @@ begin
 					read_var := MreIn;
 					write_var := MweIn;
 					state <= s1;
+					read_data <= read_var;
+					write_data <= write_var;
 						
 				when s1 => ----check if theres a hit or miss
 					state_d <= "0001";
+					read_var := read_data;-----------------------------------------------
+					write_var := write_data;----------------------------------------------
+					read_data <= read_var;
+					write_data <= write_var;
 					if (hit ='1') then 
 						data_enable <= '1';
 						delayReq <= '0';
 					   state <= s1b;
-						done <= '0';
+						
 					elsif (hit ='0') then  --- if hit = 0 / miss
---						addressOUT <= addressIN;
---						replaceStatusOut <= '1';
---						delayReq <= '1';
---						if ((MreIn = '1') and (MweIn ='0')) then
 
---								read_data <= '1'; 
---								write_data<= '0';
---						else	
---							if ((MweIn = '1') and (MreIn ='0')) then 
---								read_data <= '0'; 
---								write_data<= '1';
---							end if;
-							
---						end if;
 						state <= s1c;
 					else 
 						state <= s1;
@@ -178,18 +173,17 @@ begin
 					
 				when s1b => 
 						state_d <= "0010";
-						if ((read_var = '1') and (write_var ='0')) then
+						if ((read_data = '1') and (write_data = '0')) then
 								read_data <= '1';
 							write_data <= '0';
 								state <= s2;
 								
-						else	
-							if ((write_var = '1') and (read_var ='0')) then 
+						elsif ((read_data = '0') and (write_data = '1')) then 
 								write_data <= '1';
 								read_data <= '0';
 								
 								state <= s3;
-							end if;
+							--end if;
 							
 						end if;
 				when s1c => 
@@ -199,11 +193,12 @@ begin
 						state <= s4;
 						state_d <= "0011";
 				when s2 => ---send data to cpu
+						state_d <= "0100";
 						data_out_cpu <= tempDataOut;
 						state <= sReset;----------
 --						read_data <= '0';
 						done <= '1';
-						state_d <= "0100";
+						
 				when s3=> --- send data to dataMemory
 						tempDataIn <= data_in;
 						done <= '1';
@@ -253,14 +248,19 @@ begin
 					if ((read_var = '1') and (write_var ='0')) then
 								read_data <= '1';
 								write_data <= '0';
-								state <= s2;
+								state <= sDelay;
+								nextState <= s2;
 					else	
 						if ((write_var = '1') and (read_var ='0')) then 
 								write_data <= '1';
 								read_data <= '0';
-								state <= s3;
+								state <= sDelay;
+								nextState <=s3;
 						end if;
 					end if;
+				when sDelay => 
+						state <= nextState;
+						state_d <= "1100";
 				when others =>
 			end case;
 		else 
@@ -281,9 +281,9 @@ begin
 --
 -- tempDataIn_d <=	tempDataIn;
 -- tempDataOut_d <= tempDataOut;
--- tagIndex_d <= tagIndex;
--- lineIndex_d <= lineIndex;
--- wordIndex_d <= wordIndex;
+---- tagIndex_d <= tagIndex;
+---- lineIndex_d <= lineIndex;
+---- wordIndex_d <= wordIndex;
 -- hit_d <= hit;
 --
 --tag_enable_d <= tag_enable;
