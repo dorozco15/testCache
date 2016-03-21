@@ -1,0 +1,165 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Users\dorozco\Desktop\testCache\simulation\qsim
+vCache
+Z1 IUb_ScaBjMJ]Uai4Y@P?WU0
+Z2 V6=z@ERg]mdj[Hj=Nnz<OU2
+Z3 dC:\Users\dorozco\Desktop\testCache\simulation\qsim
+Z4 w1458593939
+Z5 8Cache.vo
+Z6 FCache.vo
+L0 32
+Z7 OV;L;10.1e;51
+r1
+31
+Z8 !s90 -work|work|Cache.vo|
+Z9 o-work work -O0
+Z10 n@cache
+!i10b 1
+Z11 !s100 <`BzF7Oh?E=0a@J?4z2][3
+!s85 0
+Z12 !s108 1458593939.788000
+Z13 !s107 Cache.vo|
+!s101 -O0
+vCache_vlg_check_tst
+!i10b 1
+Z14 !s100 lQNYa^`59RKebI:e]5NlY2
+Z15 IncmC::`oA9Kh<3GUR@48U1
+Z16 V54[d@M=5h5hh>M>44EFNj3
+R3
+Z17 w1458593936
+Z18 8cache-Sim.vwf.vt
+Z19 Fcache-Sim.vwf.vt
+L0 70
+R7
+r1
+!s85 0
+31
+Z20 !s108 1458593940.837000
+Z21 !s107 cache-Sim.vwf.vt|
+Z22 !s90 -work|work|cache-Sim.vwf.vt|
+!s101 -O0
+R9
+Z23 n@cache_vlg_check_tst
+vCache_vlg_sample_tst
+!i10b 1
+Z24 !s100 N4XNJSkD:^]=>gJTZ[9AB3
+Z25 IWmEEHBY:^RHz?AHiPzZ8_2
+Z26 VRDGn]Qc<G6U1_U^641PBL1
+R3
+R17
+R18
+R19
+L0 30
+R7
+r1
+!s85 0
+31
+R20
+R21
+R22
+!s101 -O0
+R9
+Z27 n@cache_vlg_sample_tst
+vCache_vlg_vec_tst
+!i10b 1
+Z28 !s100 :m8Kf4b1a9ZfL?6IGjh[P0
+Z29 Ie;a>`jDN5Y9YOPaJXQh8U1
+Z30 VYZX_<G>LZ16FLXO6@2OEM0
+R3
+R17
+R18
+R19
+Z31 L0 729
+R7
+r1
+!s85 0
+31
+R20
+R21
+R22
+!s101 -O0
+R9
+Z32 n@cache_vlg_vec_tst
+vCacheController
+Z33 INbI>HZPni7nP`<3P>L9=@1
+Z34 Vgf<NL:lUImO>;YFf6jbM91
+R3
+Z35 w1458577280
+R5
+R6
+L0 32
+R7
+r1
+31
+R8
+R9
+Z36 n@cache@controller
+Z37 !s100 ]XXgjNgAcMNLMD<moLoJY1
+Z38 !s108 1458577281.292000
+R13
+!i10b 1
+!s85 0
+!s101 -O0
+vCacheController_vlg_check_tst
+Z39 IN9j`D^7DSeMAb<0=ebi7[0
+Z40 VWAonFHEmb2i]:Z8EnO^<R1
+R3
+Z41 w1458577278
+R18
+R19
+L0 76
+R7
+r1
+31
+Z42 !s108 1458577281.970000
+Z43 !s107 cache-Sim.vwf.vt|
+R22
+R9
+Z44 n@cache@controller_vlg_check_tst
+Z45 !s100 bOZ77K<7c`T_b5GX_hCI02
+!i10b 1
+!s85 0
+!s101 -O0
+vCacheController_vlg_sample_tst
+Z46 IW@YZJo;PA884iPUa^T0b01
+Z47 VKRW<8H[RAHX9ko8l?_g2G3
+R3
+R41
+R18
+R19
+L0 30
+R7
+r1
+31
+R42
+R43
+R22
+R9
+Z48 n@cache@controller_vlg_sample_tst
+Z49 !s100 FZO66DTHXT:;Zn=cRbgj11
+!i10b 1
+!s85 0
+!s101 -O0
+vCacheController_vlg_vec_tst
+Z50 I9`S;Wa0JeoL:>4W`17oBX0
+Z51 Vj9W4XZj<:LV^Z?O>2m>>Y0
+R3
+R41
+R18
+R19
+Z52 L0 852
+R7
+r1
+31
+R42
+R43
+R22
+R9
+Z53 n@cache@controller_vlg_vec_tst
+Z54 !s100 a;[KOGN_Ue_d`of;TVZCb1
+!i10b 1
+!s85 0
+!s101 -O0
