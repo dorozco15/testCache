@@ -1,5 +1,5 @@
 Flow report for Cache
-Mon Mar 21 20:06:02 2016
+Wed Mar 23 02:55:34 2016
 Quartus II 64-Bit Version 14.0.2 Build 209 09/17/2014 SJ Full Version
 
 
@@ -41,18 +41,18 @@ agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Mon Mar 21 20:06:02 2016       ;
+; Flow Status                        ; Successful - Wed Mar 23 02:55:34 2016       ;
 ; Quartus II 64-Bit Version          ; 14.0.2 Build 209 09/17/2014 SJ Full Version ;
 ; Revision Name                      ; Cache                                       ;
 ; Top-level Entity Name              ; Cache                                       ;
 ; Family                             ; Cyclone IV E                                ;
 ; Device                             ; EP4CE115F29C7                               ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 3,254 / 114,480 ( 3 % )                     ;
-;     Total combinational functions  ; 3,206 / 114,480 ( 3 % )                     ;
-;     Dedicated logic registers      ; 787 / 114,480 ( < 1 % )                     ;
-; Total registers                    ; 787                                         ;
-; Total pins                         ; 62 / 529 ( 12 % )                           ;
+; Total logic elements               ; 3,752 / 114,480 ( 3 % )                     ;
+;     Total combinational functions  ; 3,629 / 114,480 ( 3 % )                     ;
+;     Dedicated logic registers      ; 977 / 114,480 ( < 1 % )                     ;
+; Total registers                    ; 977                                         ;
+; Total pins                         ; 206 / 529 ( 39 % )                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 65,536 / 3,981,312 ( 2 % )                  ;
 ; Embedded Multiplier 9-bit elements ; 0 / 532 ( 0 % )                             ;
@@ -65,7 +65,7 @@ agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 03/21/2016 19:58:33 ;
+; Start date & time ; 03/23/2016 02:52:43 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; Cache               ;
 +-------------------+---------------------+
@@ -76,7 +76,7 @@ agreement for further details.
 +-------------------------------------+-----------------------------------------------------+---------------+-------------+----------------+
 ; Assignment Name                     ; Value                                               ; Default Value ; Entity Name ; Section Id     ;
 +-------------------------------------+-----------------------------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 203178706091723.145860111306416                     ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID               ; 203178706091723.145871236306264                     ; --            ; --          ; --             ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; On                                                  ; --            ; --          ; eda_simulation ;
 ; EDA_NETLIST_WRITER_OUTPUT_DIR       ; C:/Users/dorozco/Desktop/testCache/simulation/qsim/ ; --            ; --          ; eda_simulation ;
 ; EDA_OUTPUT_DATA_FORMAT              ; Verilog Hdl                                         ; --            ; --          ; eda_simulation ;
@@ -86,7 +86,6 @@ agreement for further details.
 ; IP_TOOL_VERSION                     ; 14.0                                                ; --            ; --          ; --             ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                                  ; --            ; --          ; --             ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                                   ; --            ; --          ; --             ;
-; MISC_FILE                           ; MainMemory_inst.vhd                                 ; --            ; --          ; --             ;
 ; MISC_FILE                           ; MainMemory.cmp                                      ; --            ; --          ; --             ;
 ; NOMINAL_CORE_SUPPLY_VOLTAGE         ; 1.2V                                                ; --            ; --          ; --             ;
 ; PARTITION_COLOR                     ; 16764057                                            ; --            ; --          ; Top            ;
@@ -103,18 +102,14 @@ agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:15     ; 1.0                     ; 636 MB              ; 00:00:07                           ;
-; Fitter                    ; 00:00:53     ; 2.2                     ; 1589 MB             ; 00:01:03                           ;
-; Assembler                 ; 00:00:05     ; 1.0                     ; 535 MB              ; 00:00:05                           ;
-; TimeQuest Timing Analyzer ; 00:00:06     ; 1.0                     ; 672 MB              ; 00:00:06                           ;
+; Analysis & Synthesis      ; 00:00:09     ; 1.0                     ; 620 MB              ; 00:00:07                           ;
+; Fitter                    ; 00:01:06     ; 2.5                     ; 1591 MB             ; 00:01:26                           ;
+; Assembler                 ; 00:00:05     ; 1.0                     ; 522 MB              ; 00:00:05                           ;
+; TimeQuest Timing Analyzer ; 00:00:07     ; 1.0                     ; 681 MB              ; 00:00:07                           ;
 ; EDA Netlist Writer        ; 00:00:01     ; 1.0                     ; 467 MB              ; 00:00:01                           ;
 ; EDA Netlist Writer        ; 00:00:01     ; 1.0                     ; 475 MB              ; 00:00:01                           ;
-; EDA Netlist Writer        ; 00:00:02     ; 1.0                     ; 475 MB              ; 00:00:01                           ;
-; EDA Netlist Writer        ; 00:00:01     ; 1.0                     ; 475 MB              ; 00:00:01                           ;
-; EDA Netlist Writer        ; 00:00:02     ; 1.0                     ; 475 MB              ; 00:00:01                           ;
-; EDA Netlist Writer        ; 00:00:01     ; 1.0                     ; 475 MB              ; 00:00:01                           ;
-; EDA Netlist Writer        ; 00:00:02     ; 1.0                     ; 475 MB              ; 00:00:01                           ;
-; Total                     ; 00:01:29     ; --                      ; --                  ; 00:01:28                           ;
+; EDA Netlist Writer        ; 00:00:02     ; 1.0                     ; 491 MB              ; 00:00:01                           ;
+; Total                     ; 00:01:31     ; --                      ; --                  ; 00:01:48                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -130,10 +125,6 @@ agreement for further details.
 ; EDA Netlist Writer        ; FR-ECE-30164     ; Windows 7 ; 6.1        ; x86_64         ;
 ; EDA Netlist Writer        ; FR-ECE-30164     ; Windows 7 ; 6.1        ; x86_64         ;
 ; EDA Netlist Writer        ; FR-ECE-30164     ; Windows 7 ; 6.1        ; x86_64         ;
-; EDA Netlist Writer        ; FR-ECE-30164     ; Windows 7 ; 6.1        ; x86_64         ;
-; EDA Netlist Writer        ; FR-ECE-30164     ; Windows 7 ; 6.1        ; x86_64         ;
-; EDA Netlist Writer        ; FR-ECE-30164     ; Windows 7 ; 6.1        ; x86_64         ;
-; EDA Netlist Writer        ; FR-ECE-30164     ; Windows 7 ; 6.1        ; x86_64         ;
 +---------------------------+------------------+-----------+------------+----------------+
 
 
@@ -145,10 +136,6 @@ quartus_fit --read_settings_files=off --write_settings_files=off Cache -c Cache
 quartus_asm --read_settings_files=off --write_settings_files=off Cache -c Cache
 quartus_sta Cache -c Cache
 quartus_eda --read_settings_files=off --write_settings_files=off Cache -c Cache
-quartus_eda --gen_testbench --check_outputs=on --tool=modelsim_oem --format=verilog Cache -c Cache --vector_source=C:/Users/dorozco/Desktop/testCache/cache-Sim.vwf --testbench_file=C:/Users/dorozco/Desktop/testCache/simulation/qsim/cache-Sim.vwf.vt
-quartus_eda --functional=on --flatten_buses=off --simulation=on --tool=modelsim_oem --format=verilog --output_directory=C:/Users/dorozco/Desktop/testCache/simulation/qsim/ Cache -c Cache
-quartus_eda --gen_testbench --check_outputs=on --tool=modelsim_oem --format=verilog Cache -c Cache --vector_source=C:/Users/dorozco/Desktop/testCache/cache-Sim.vwf --testbench_file=C:/Users/dorozco/Desktop/testCache/simulation/qsim/cache-Sim.vwf.vt
-quartus_eda --functional=on --flatten_buses=off --simulation=on --tool=modelsim_oem --format=verilog --output_directory=C:/Users/dorozco/Desktop/testCache/simulation/qsim/ Cache -c Cache
 quartus_eda --gen_testbench --check_outputs=on --tool=modelsim_oem --format=verilog Cache -c Cache --vector_source=C:/Users/dorozco/Desktop/testCache/cache-Sim.vwf --testbench_file=C:/Users/dorozco/Desktop/testCache/simulation/qsim/cache-Sim.vwf.vt
 quartus_eda --functional=on --flatten_buses=off --simulation=on --tool=modelsim_oem --format=verilog --output_directory=C:/Users/dorozco/Desktop/testCache/simulation/qsim/ Cache -c Cache
 

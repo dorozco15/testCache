@@ -29,8 +29,8 @@
 # Loading work.Cache_vlg_sample_tst
 # Loading work.Cache_vlg_check_tst
 # Loading altera_ver.PRIM_GDFF_LOW
-# ** Warning: Design size of 15597 statements exceeds ModelSim Altera Starter recommended capacity.
+# ** Warning: Design size of 19906 statements exceeds ModelSim Altera Starter recommended capacity.
 # Expect performance to be adversely affected.
 # Simulation passed !
-# ** Note: $finish    : cache-Sim.vwf.vt(725)
-#    Time: 1 us  Iteration: 0  Instance: /Cache_vlg_vec_tst/tb_out
+# ** Note: $finish    : cache-Sim.vwf.vt(3216)
+#    Time: 5 us  Iteration: 0  Instance: /Cache_vlg_vec_tst/tb_out

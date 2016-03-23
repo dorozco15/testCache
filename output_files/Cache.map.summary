@@ -1,13 +1,13 @@
-Analysis & Synthesis Status : Successful - Mon Mar 21 19:58:48 2016
+Analysis & Synthesis Status : Successful - Wed Mar 23 02:52:51 2016
 Quartus II 64-Bit Version : 14.0.2 Build 209 09/17/2014 SJ Full Version
 Revision Name : Cache
 Top-level Entity Name : Cache
 Family : Cyclone IV E
-Total logic elements : 3,358
-    Total combinational functions : 3,205
-    Dedicated logic registers : 787
-Total registers : 787
-Total pins : 62
+Total logic elements : 3,863
+    Total combinational functions : 3,628
+    Dedicated logic registers : 977
+Total registers : 977
+Total pins : 206
 Total virtual pins : 0
 Total memory bits : 65,536
 Embedded Multiplier 9-bit elements : 0

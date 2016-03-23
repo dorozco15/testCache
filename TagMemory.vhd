@@ -12,7 +12,8 @@ port (
 	hit : out std_ulogic; 
 	line_in: in std_logic_vector(2 downto 0);
 	write_en  : in std_logic;
-	read_en : std_logic
+	tag_out : out std_logic_vector(6 downto 0);
+	read_en : in std_logic
 		);
 		
 end TagMemory;
@@ -60,6 +61,7 @@ line_check <= to_integer(unsigned(line_in));
 				else
 					hit <= '0';
 				end if;
+				tag_out <= memory(line_check);
 			end if;
 		end if;
 	end if;

@@ -42,15 +42,16 @@ USE altera_mf.altera_mf_components.all;
 
 ENTITY MainMemory IS
 	PORT
-	(
-	clock_en : in std_logic; 
-	clock		: 	in std_logic;
+	( --clock_en : in std_logic;
+		clock		: 	in std_logic;
 	rst		: 	in std_logic;
 	Mre		:	in std_logic;
 	Mwe		:	in std_logic;
-	address	:	in std_logic_vector(11 downto 0);
+	addressIn	:	in std_logic_vector(11 downto 0);
+	writeAddress : in std_logic_vector(9 downto 0);
 	data_in	:	in std_logic_vector(63 downto 0);
-	data_out:	out std_logic_vector (63 downto 0)
+	data_out:	out std_logic_vector (63 downto 0);
+	slowClock_out : out std_logic
 	);
 END MainMemory;
 
@@ -58,20 +59,22 @@ END MainMemory;
 ARCHITECTURE SYN OF mainmemory IS
 
 	SIGNAL sub_wire0	: STD_LOGIC_VECTOR (63 DOWNTO 0);
-	signal slowClock : std_logic:='1' ;
-	signal blockAddress: std_logic_vector(9 downto 0);
+	signal slowClock : std_logic:='0';
 	signal counter : integer:= 1;
-
+	signal blockAddress : std_logic_vector(9 downto 0);
+	signal write_data : std_logic;
+	
 BEGIN
+	slowClock_out <= slowClock;
 	data_out    <= sub_wire0(63 DOWNTO 0);
-	blockAddress <= address(11 downto 2); 
+	write_data <= Mwe;
 	
 	
 	
-	delayClock : process (clock, clock_en)
+	delayClock : process (clock)
 		
 	begin 
-		if (clock_en = '1') then 
+ 
 			if(rising_edge(clock)) then 
 				if (counter = 4) then 
 					slowClock <= not slowClock;
@@ -79,16 +82,35 @@ BEGIN
 				else
 					counter <= counter +1;
 				end if;
+--				if (Mwe = '1') then
+--					write_data <= '1';
+--					slowClock <= '1';
+--				end if;
 			end if;
-		end if;
 	end process;
+	address : process (Mre, Mwe) 
+	begin 
+		if (Mre = '1') then 
+			blockAddress <= addressIn(11 downto 2);
+		end if;
+		if (Mwe = '1') then
+			blockAddress <= writeAddress; 
+		end if;
 	
+	end process;
+--	write : process ( Mwe) 
+--	begin 
+--		if (rising_edge(Mwe)) then
+--			write_data <= '1';
+--			slowClock <= '1';
+--		end if;
+--	end process;
 
 	altsyncram_component : altsyncram
 	GENERIC MAP (
 		clock_enable_input_a => "BYPASS",
 		clock_enable_output_a => "BYPASS",
-		init_file => "../Project_Enhanced_System/SimpleCompArch_QII_14/m9k_mem.hex",
+		init_file => "mem-file.mif",
 		intended_device_family => "Cyclone IV E",
 		lpm_hint => "ENABLE_RUNTIME_MOD=NO",
 		lpm_type => "altsyncram",
@@ -109,7 +131,7 @@ BEGIN
 		clock0 => slowClock,
 		data_a => data_in,
 		rden_a => Mre,
-		wren_a => Mwe,
+		wren_a => write_data,
 		q_a => sub_wire0
 	);
 
@@ -139,7 +161,7 @@ END SYN;
 -- Retrieval info: PRIVATE: JTAG_ENABLED NUMERIC "0"
 -- Retrieval info: PRIVATE: JTAG_ID STRING "NONE"
 -- Retrieval info: PRIVATE: MAXIMUM_DEPTH NUMERIC "0"
--- Retrieval info: PRIVATE: MIFfilename STRING "../Project_Enhanced_System/SimpleCompArch_QII_14/m9k_mem.hex"
+-- Retrieval info: PRIVATE: MIFfilename STRING "mem-file.mif"
 -- Retrieval info: PRIVATE: NUMWORDS_A NUMERIC "1024"
 -- Retrieval info: PRIVATE: RAM_BLOCK_TYPE NUMERIC "2"
 -- Retrieval info: PRIVATE: READ_DURING_WRITE_MODE_PORT_A NUMERIC "3"
@@ -156,7 +178,7 @@ END SYN;
 -- Retrieval info: LIBRARY: altera_mf altera_mf.altera_mf_components.all
 -- Retrieval info: CONSTANT: CLOCK_ENABLE_INPUT_A STRING "BYPASS"
 -- Retrieval info: CONSTANT: CLOCK_ENABLE_OUTPUT_A STRING "BYPASS"
--- Retrieval info: CONSTANT: INIT_FILE STRING "../Project_Enhanced_System/SimpleCompArch_QII_14/m9k_mem.hex"
+-- Retrieval info: CONSTANT: INIT_FILE STRING "mem-file.mif"
 -- Retrieval info: CONSTANT: INTENDED_DEVICE_FAMILY STRING "Cyclone IV E"
 -- Retrieval info: CONSTANT: LPM_HINT STRING "ENABLE_RUNTIME_MOD=NO"
 -- Retrieval info: CONSTANT: LPM_TYPE STRING "altsyncram"
@@ -188,5 +210,5 @@ END SYN;
 -- Retrieval info: GEN_FILE: TYPE_NORMAL MainMemory.inc FALSE
 -- Retrieval info: GEN_FILE: TYPE_NORMAL MainMemory.cmp TRUE
 -- Retrieval info: GEN_FILE: TYPE_NORMAL MainMemory.bsf FALSE
--- Retrieval info: GEN_FILE: TYPE_NORMAL MainMemory_inst.vhd TRUE
+-- Retrieval info: GEN_FILE: TYPE_NORMAL MainMemory_inst.vhd FALSE
 -- Retrieval info: LIB_FILE: altera_mf
