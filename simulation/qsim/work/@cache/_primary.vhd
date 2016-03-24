@@ -14,16 +14,15 @@ entity Cache is
         state_con_d     : out    vl_logic_vector(3 downto 0);
         state_d         : out    vl_logic_vector(3 downto 0);
         done_cache      : out    vl_logic;
-        done_controller_d: out    vl_logic;
+        done_out_d      : out    vl_logic;
         controller_en_d : out    vl_logic;
-        done_check_d    : out    vl_logic;
         replaceStatusOut_d: out    vl_logic;
         replaceStatusIn_d: out    vl_logic;
-        mem_block_out_d : out    vl_logic_vector(63 downto 0);
+        block_to_cache_d: out    vl_logic_vector(63 downto 0);
         slowClock_d     : out    vl_logic;
-        write_block_d   : out    vl_logic;
-        cont_out_block  : out    vl_logic_vector(63 downto 0);
-        write_back_mem_d: out    vl_logic;
+        send_to_mem_d   : out    vl_logic;
+        block_to_mem_d  : out    vl_logic_vector(63 downto 0);
+        write_to_mem_d  : out    vl_logic;
         done_write_back_d: out    vl_logic;
         write_address_mem_d: out    vl_logic_vector(9 downto 0)
     );

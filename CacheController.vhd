@@ -121,14 +121,15 @@ begin
 			data_enable <= hit;
 			read_tag <= '1';
 			write_tag <= '0';
+			
 			if (done_write_back = '1') then 
 				send_block_out <= '0';
 			end if;
 			if (clock_en = '1') then
 				
 				
---				read_data <= MreIn;
---				write_data <= MweIn;
+				read_data <= MreIn;
+				write_data <= MweIn;
 				
 				case state is
 					when sReset =>
